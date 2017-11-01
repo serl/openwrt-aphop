@@ -9,7 +9,7 @@ Let's say your OpenWRT device is connected (also) as a wifi client, to a big net
 
 Let's assume you configured OpenWRT to be tied to one specific hotspot, but now you want it automatically switch to the best hotspot and keep working (if you have an AP on the same radio interface) even if no hotspot is around.
 
-`openwrt-aphop` is for you!
+If so, `openwrt-aphop` is for you!
 
 
 ## Compatibility
@@ -32,8 +32,8 @@ Note that when the hotspot is changed, the wifi is restarted, disconnecting all 
 
 ## Cron
 
-52 5 * * * /path/to/aphop/check.sh force >/root/aphop/log_force 2>&1
-*/10 * * * * /path/to/aphop/check.sh >/root/aphop/log 2>&1
+    52 5 * * * /path/to/aphop/check.sh force >/root/aphop/log_force 2>&1
+    */10 * * * * /path/to/aphop/check.sh >/root/aphop/log 2>&1
 
 
 ## Blacklisting APs
