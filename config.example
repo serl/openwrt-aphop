@@ -1,0 +1,11 @@
+SCANNING_IFACE="wlan0"
+
+ESSID="Upstream WiFi SSID"
+ENCRYPTION="none" # none or psk2
+
+WIFI_IFACE_ID="N" # run `uci show wireless`, get N from the right "wireless.@wifi-iface[N]" section
+
+# optional, will try to turn them on/off by echoing 1 and 0 to
+# /sys/class/leds/$LED/brightness
+LED_OK="gpio4"
+LED_ERROR="gpio7"
