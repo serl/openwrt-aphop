@@ -1,4 +1,5 @@
 SCANNING_IFACE="wlan0"
+QUALITY_MIN=10 # over 70
 
 ESSID="Upstream WiFi SSID"
 ENCRYPTION="none" # none or psk2

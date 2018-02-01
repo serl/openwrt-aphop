@@ -35,7 +35,7 @@ while IFS='' read -r line; do
 	case "$line" in
 		"")
 			encryption_without=$(printf '%s' "$encryption" | sed -e "s/$SCAN_ENCRYPTION//g")
-			if [ "$essid" = '"'"$ESSID"'"' ] && [ "$encryption" != "$encryption_without" ]  && [ "$quality" -gt 3 ]; then
+			if [ "$essid" = '"'"$ESSID"'"' ] && [ "$encryption" != "$encryption_without" ]  && [ "$quality" -gt "${QUALITY_MIN:-10}" ]; then
 				if [ ! -f "$BLACKLIST" ] || ! grep -q "$mac" "$BLACKLIST"; then
 					echo "$quality|$mac|$channel" >> $wifi_scan_results
 					found_count=$((found_count + 1))
