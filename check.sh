@@ -15,7 +15,7 @@ else
 	network_status_json="$(ubus -S call network.interface.$network_interface_name status)"
 	up_substring='"up":true'
 	if [ "${network_status_json/$up_substring/}" = "$network_status_json" ]; then
-		echo "No connectivity at the moment."
+		echo "Not connected to $ESSID at the moment."
 		check="true"
 	else
 		echo "Healty."
