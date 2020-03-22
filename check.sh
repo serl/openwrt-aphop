@@ -1,6 +1,7 @@
 #!/bin/sh
 
-cd "$(dirname "$0")"
+cd "$(dirname "$0")" || exit
+# shellcheck source=config.example
 . ./config
 
 LED_OK_DEV="/sys/class/leds/$LED_OK/brightness"
@@ -38,8 +39,8 @@ if [ "$check" = "true" ]; then
 		fi
 		exit 1
 	fi
-	bssid="$(echo $bssid_channel | cut -d'|' -f1)"
-	channel="$(echo $bssid_channel | cut -d'|' -f2)"
+	bssid="$(echo "$bssid_channel" | cut -d'|' -f1)"
+	channel="$(echo "$bssid_channel" | cut -d'|' -f2)"
 	echo "Changing configuration to connect to $ESSID hotspot $bssid at channel $channel."
 	radio_name="$(uci get wireless.@wifi-iface[$WIFI_IFACE_ID].device)"
 	uci set "wireless.$radio_name.channel=$channel"
